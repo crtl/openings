@@ -1,0 +1,14 @@
+{
+    "name": "crtl/openings",
+    "description": "Package to determine if a time is within predefined ranges (such as store openings).",
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "Marvin Petker",
+            "email": "marvin.petker@borntocreate.de"
+        }
+    ],
+    "require": {}
+}
