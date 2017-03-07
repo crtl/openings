@@ -1,1 +1,4 @@
 /vendor/
+
+# Hide IDE files
+/nbproject/
