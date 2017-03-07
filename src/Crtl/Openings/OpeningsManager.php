@@ -173,7 +173,10 @@ class OpeningsManager {
         
         $formattedTimes = [];
         
-        if (!is_array($times)) {
+        if (!$times) {
+            $times = [];
+        }
+        else if (!is_array($times)) {
             $times = [$times];
         }
         
@@ -181,7 +184,6 @@ class OpeningsManager {
             $formattedTimes[] = $this->formatTime(trim($time));
         }
         
-        //print_r($dayNames);
         
         return array_fill_keys($dayNames, $formattedTimes);
     }
