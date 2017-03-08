@@ -1,6 +1,7 @@
 {
     "name": "crtl/openings",
     "description": "This package provides basic functionality to determine openings such as shop or restaurant openings.",
+    "license": "MIT",
     "require-dev": {
         "phpunit/phpunit": "^6.0"
     },
