@@ -42,14 +42,18 @@ class OpeningsManager {
         $dateStr = $date->format(self::EXCEPTION_DATE_FORMAT);
         $dayStr = $date->format(self::OPENING_DATE_FORMAT);
         $timeStr = $date->format(self::TIME_FORMAT);
+
+        $exceptions = $this->getOpeningException($dateStr);
         
-        if ($exceptions = $this->getOpeningException($dateStr)) {
+        
+        if ($exceptions !== null) {
             $openings = $exceptions;
         }
         else {
             $openings = $this->getOpening($dayStr);
         }
-        
+
+
         foreach ($openings as $opening) {
             if ($timeStr >= $opening["from"] && $timeStr <= $opening["to"]) {
                 return true;
