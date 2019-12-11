@@ -2,8 +2,9 @@
 
 use Crtl\Openings\OpeningsManager;
 use Crtl\Openings\Exceptions\InvalidFormatException;
+use PHPUnit\Framework\TestCase;
 
-class OpeningsManagerTest extends PHPUnit_Framework_TestCase {
+class OpeningsManagerTest extends TestCase {
     
     
     protected $_openings = [
@@ -92,6 +93,21 @@ class OpeningsManagerTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($openingsManager->isOpen());
         $this->assertTrue($openingsManager->isOpen($date));
         
+    }
+
+    public function testOpeningExceptions() {
+
+        $manager = new OpeningsManager([
+            "Mon-Fri" => "08:00-16:00"
+        ], [
+            "2019/12/24" => []
+        ]);
+
+        $date = \DateTime::createFromFormat("Y-m-d",  "2019/12/24");
+
+        $this->assertFalse($manager->isOpen($date));
+
+
     }
     
     
